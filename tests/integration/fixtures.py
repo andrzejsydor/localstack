@@ -35,6 +35,7 @@ if TYPE_CHECKING:
     from mypy_boto3_logs import CloudWatchLogsClient
     from mypy_boto3_opensearch import OpenSearchServiceClient
     from mypy_boto3_redshift import RedshiftClient
+    from mypy_boto3_route53 import Route53Client
     from mypy_boto3_s3 import S3Client
     from mypy_boto3_secretsmanager import SecretsManagerClient
     from mypy_boto3_ses import SESClient
@@ -180,6 +181,11 @@ def sts_client() -> "STSClient":
 @pytest.fixture(scope="class")
 def ec2_client() -> "EC2Client":
     return _client("ec2")
+
+
+@pytest.fixture(scope="class")
+def route53_client() -> "Route53Client":
+    return _client("route53")
 
 
 @pytest.fixture
